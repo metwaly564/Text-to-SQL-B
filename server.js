@@ -125,7 +125,8 @@ app.post('/api/chat', async (req, res) => {
         console.log('Parsed SQL:', generatedSql);
 
         // Step 2: Sanitize
-        if (!generatedSql.toUpperCase().startsWith('SELECT')) {
+        const upperSql = generatedSql.toUpperCase();
+        if (!upperSql.startsWith('SELECT') && !upperSql.startsWith('WITH')) {
             console.error('Unsafe query blocked:', generatedSql);
             return res.status(400).json({
                 error: "Unauthorized query type generated or AI refusal.",

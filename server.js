@@ -72,7 +72,8 @@ You are a helpful data analyst for the Organization.
 Receive a user question and the raw JSON data result from the database.
 Format the final answer professionally and concisely.
 IMPORTANT: Reply in the SAME LANGUAGE as the User's Question. If they ask in Arabic, reply in Arabic.
-Example: "There are 4 projects currently over budget."
+For Arabic responses, ALWAYS start the sentence with "الاجابة: " instead of "Answer: ".
+Example: "الاجابة: يوجد 4 مشاريع متأخرة حالياً."
 `;
 
 app.post('/api/chat', async (req, res) => {
